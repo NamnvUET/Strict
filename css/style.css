@@ -1,0 +1,254 @@
+body{
+    background-color: #f6f9f9;
+    font-family: "Lato";
+}
+.navbar{
+    min-height: 100px;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    background-color: #ffffff;
+}
+/*HEADER NAVBAR*/
+
+.navbar > .container .navbar-brand{
+    margin-left: 0px;
+}
+header{
+    min-height: 100px;
+}
+
+/*BANNER*/
+.banner{
+    background-image: url("../image/banner.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.banner-content h1{
+    color: #ffffff;
+    font-size: 120px;
+    font-weight: bold;
+}
+.banner-content hr{
+    border: solid 1px #15a4fa;
+}
+.banner-content p{
+    margin-top: 28px;
+    color: #ffffff;
+    font-size: 20px;
+}
+.banner-content > .call-btn{
+    height: 55px;
+    width: 180px;
+    margin-top: 50px;
+    padding-top: 13px;
+    border: solid 1px #15a4fa;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+.call-btn:hover{
+    background-color: #286090;
+    border-color: #204d74;
+}
+.banner-content a{
+    margin-top: 156px;
+    color: white;
+    text-decoration: none;
+}
+
+/*SIMPLE AND PURE DESIGN*/
+.page--header{
+    margin-bottom: 105px;
+    margin-top: 40px;
+}
+#page-title{
+    margin-bottom: 15px;
+    color: #2d3950;
+    font-size: 41px;
+}
+#page-content{
+    color: #999999;
+    font-size: 18px;
+}
+.page--feature{
+    padding-top: 65px;
+    padding-bottom: 65px;
+    background-color: white;
+    text-align: center;
+}
+.page--feature h3{
+    margin-top: 33px;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+.page--feature p{
+    margin-left: 10%;
+    width: 80%;
+    color: #999999;
+    font-size: 15px;
+}
+
+/*PORTFOLIO*/
+.portfolio{
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+.portfolio--title{
+    margin-bottom: 80px;
+    text-align: center;
+}
+.portfolio--title h3{
+    font-size: 41px;
+}
+.portfolio--title p{
+    color: #909090;
+    font-size: 18px;
+}
+.portfolio--content{
+    margin-bottom: 30px;
+    text-align: center;
+}
+.portfolio--content img{
+    width: 100%;
+    display: block;
+}
+.portfolio--content {
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    margin: 0px 15px;
+    justify-content: center;
+    align-items: center;
+    transition: all;
+    transition-duration: 0.5s;
+    display: flex;
+    background-color: #008CBA;
+}
+.portfolio--content:hover .overlay {
+    opacity: 0.8;
+}
+.overlay > .fa {
+    padding-top: 12px;
+    height: 43px;
+    width: 43px;
+    margin: 5px 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    background: #15a4fa;
+    color: white;
+}
+.overlay > .fa:hover {
+    opacity: 0.7;
+    background-color: blue;
+    border: 1px solid #999999;
+    transition: 0.5s;
+}
+
+/*STAY WITH US*/
+.form--box{
+    background-image: url("../image/stay_image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+.form--title{
+    text-align: center;
+    margin-bottom: 53px;
+}
+.form--title h3{
+    font-size: 41px;
+    color: #ffffff;
+    margin-bottom: 17px;
+}
+.form--title p{
+    font-size: 15px;
+    color: #999999;
+}
+#stay_with_us .form-group{
+    width: 50%;
+    margin-left: 25%;
+}
+.form-group > input{
+    height: 60px;
+}
+#stay_with_us .form-control {
+    background: transparent;
+    border: solid 1px #999999;
+    color: white;
+    font-size: 17px;
+}
+.form--submit{
+    margin-left: 25%;
+    width: 50%;
+    height: 50px;
+}
+.form--submit > .row{
+    height: 100%;
+}
+#remember_me{
+    height: 100%;
+    padding-top: 11px;
+}
+#submit_btn{
+    height: 100%;
+}
+.form--submit label{
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 10px;
+}
+.form--submit button{
+    background: transparent;
+    float: right;
+    height: 100%;
+    width: 50%;
+}
+
+/*FOOTER*/
+
+footer{
+    min-height: 98px;
+    color: #999999;
+}
+.social{
+    text-align: right;
+}
+.social > .fa{
+    padding-top: 12px;
+    height: 43px;
+    width: 43px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 3px;
+    font-size: 20px;
+    background: #15a4fa;
+    color: white;
+}
+.social > .fa:hover {
+    opacity: 0.7;
+    background-color: blue;
+}
+footer > .container{
+    padding-top: 30px;
+}
+.copyright{
+    padding-top: 15px;
+    font-size: 15px;
+}

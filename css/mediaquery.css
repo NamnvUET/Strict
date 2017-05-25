@@ -1,0 +1,177 @@
+/*Large device @sceen-lg*/
+@media (min-width: 1200px)
+{
+    .banner{
+        min-height: 800px;
+    }
+    .banner-content{
+        padding-top: 200px;
+    }
+    .banner-content p{
+        font-size: 22px;
+    }
+    .banner-content hr{
+        width: 60%;
+    }
+}
+/*Medium devive @sceen-md*/
+@media (min-width: 992px) and (max-width: 1199px)
+{
+    .banner{
+        min-height: 600px;
+    }
+    .banner-content{
+        padding-top: 100px;
+        /*padding-bottom: 125px;*/
+    }
+    .banner-content h1{
+        font-size: 95px;
+    }
+    .banner-content p{
+        font-size: 18px;
+    }
+    .banner-content hr{
+        width: 65%;
+    }
+    .banner-content a{
+        margin-top: 110px;
+    }
+}
+/*Small devices @sceen-sm*/
+@media (min-width: 768px) and (max-width: 991px)
+{
+    .banner{
+        min-height: 500px;
+    }
+    .banner-content{
+        padding-top: 75px;
+    }
+    .banner-content h1{
+        font-size: 70px;
+    }
+    .banner-content hr{
+        width: 80%;
+    }
+    .banner-content p{
+        font-size: 18px;
+    }
+    .banner-content a{
+        margin-top: 75px;
+    }
+    #stay_with_us .form-group {
+        width: 60%;
+        margin-left: 20%;
+    }
+    .form--submit{
+        width: 60%;
+        margin-left: 20%;
+    }
+    #remember_me{
+        padding-top: 16px;
+    }
+    .form--submit label{
+        font-size: 14px;
+    }
+}
+/*Extra small devices < 767px @sceen-xs*/
+@media (min-width: 480px) and (max-width: 767px)
+{
+    .banner{
+        min-height: 450px;
+    }
+    .banner-content{
+        padding-top: 70px;
+    }
+    .banner-content h1{
+        font-size: 50px;
+    }
+    .banner-content hr{
+        width: 70%;
+    }
+    .banner-content p{
+        font-size: 16px;
+    }
+    .banner-content a{
+        margin-top: 53px;
+    }
+    .page--feature .col-sm-4{
+        margin-bottom: 20px;
+    }
+    .copyright{
+        text-align: center;
+    }
+    .social{
+        text-align: center;
+        margin-top: 15px;
+    }
+    #stay_with_us .form-group {
+        width: 64%;
+        margin-left: 18%;
+    }
+    .form--submit {
+        width: 64%;
+        margin-left: 18%;
+    }
+    #remember_me{
+        text-align: center;
+    }
+    .form--submit button {
+        float: none;
+    }
+    #submit_btn{
+        text-align: center;
+    }
+}
+@media (max-width: 479px)
+{
+    .banner{
+        min-height: 450px;
+    }
+    .banner-content{
+        padding-top: 70px;
+    }
+    .banner-content h1{
+        font-size: 40px;
+    }
+    .banner-content p{
+        font-size: 15px;
+    }
+    .banner-content a{
+        margin-top: 48px;
+    }
+    .banner-content button{
+        margin-top: 20px;
+    }
+
+    .page--feature .col-sm-4{
+        margin-bottom: 20px;
+    }
+
+    .copyright{
+        text-align: center;
+    }
+    .social{
+        text-align: center;
+        margin-top: 15px;
+    }
+    #stay_with_us .form-group {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .form--submit {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .footer > .container{
+        padding-top: 15px;
+    }
+    #remember_me{
+        text-align: center;
+    }
+    .form--submit button {
+        float: none;
+    }
+    #submit_btn{
+        text-align: center;
+    }
+}
