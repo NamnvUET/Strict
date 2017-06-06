@@ -1,7 +1,7 @@
 /*Large device @sceen-lg*/
 @media (min-width: 1200px)
 {
-    .banner{
+    .carousel .item{
         min-height: 800px;
     }
     .banner-content{
@@ -13,16 +13,24 @@
     .banner-content hr{
         width: 60%;
     }
+    .call-btn{
+        margin-top: 110px;
+    }
+    .links > .row> .col-xs-12> .fa-angle-down{
+        margin-top: 135px;
+    }
+    .modal-lg{
+        width: 800px;
+    }
 }
 /*Medium devive @sceen-md*/
 @media (min-width: 992px) and (max-width: 1199px)
 {
-    .banner{
-        min-height: 600px;
+    .carousel .item{
+        min-height: 700px;
     }
     .banner-content{
         padding-top: 100px;
-        /*padding-bottom: 125px;*/
     }
     .banner-content h1{
         font-size: 95px;
@@ -33,15 +41,18 @@
     .banner-content hr{
         width: 65%;
     }
-    .banner-content a{
-        margin-top: 110px;
+    .call-btn{
+        margin-top: 90px;
+    }
+    .links > .row> .col-xs-12> .fa-angle-down{
+        margin-top: 120px;
     }
 }
 /*Small devices @sceen-sm*/
 @media (min-width: 768px) and (max-width: 991px)
 {
-    .banner{
-        min-height: 500px;
+    .carousel .item{
+        min-height: 550px;
     }
     .banner-content{
         padding-top: 75px;
@@ -55,8 +66,11 @@
     .banner-content p{
         font-size: 18px;
     }
-    .banner-content a{
-        margin-top: 75px;
+    .call-btn{
+        margin-top: 70px;
+    }
+    .links > .row> .col-xs-12> .fa-angle-down{
+        margin-top: 77px;
     }
     #stay_with_us .form-group {
         width: 60%;
@@ -76,8 +90,8 @@
 /*Extra small devices < 767px @sceen-xs*/
 @media (min-width: 480px) and (max-width: 767px)
 {
-    .banner{
-        min-height: 450px;
+    .carousel .item{
+        min-height: 500px;
     }
     .banner-content{
         padding-top: 70px;
@@ -91,8 +105,8 @@
     .banner-content p{
         font-size: 16px;
     }
-    .banner-content a{
-        margin-top: 53px;
+    .links > .row> .col-xs-12> .fa-angle-down{
+        margin-top: 70px;
     }
     .page--feature .col-sm-4{
         margin-bottom: 20px;
@@ -124,7 +138,7 @@
 }
 @media (max-width: 479px)
 {
-    .banner{
+    .carousel .item{
         min-height: 450px;
     }
     .banner-content{
@@ -136,13 +150,9 @@
     .banner-content p{
         font-size: 15px;
     }
-    .banner-content a{
-        margin-top: 48px;
+    .links > .row> .col-xs-12> .fa-angle-down{
+        margin-top: 55px;
     }
-    .banner-content button{
-        margin-top: 20px;
-    }
-
     .page--feature .col-sm-4{
         margin-bottom: 20px;
     }

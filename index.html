@@ -13,6 +13,10 @@
     <!--My CSS-->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 
+    <!-- Javascript -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/myjs.js"></script>
     <!--Media Query-->
     <link rel="stylesheet" href="./css/mediaquery.css">
 
@@ -36,21 +40,57 @@
     </header>
     <!-- END HEADER-->
     <!-- BANNER -->
-    <section class="banner text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="banner-content">
-                        <h1>STRICT</h1>
-                        <hr/>
-                        <p>STRICT is a responsive theme with a a clean and minimal look</p>
-                        <a class="call-btn"> Call to action</a>
-                        </br>
-                        <a href="#stay_with_us" class="fa fa-angle-down fa-3x" aria-hidden="true"></a>
+    <section id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active one">
+                <div class="banner-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h1>STRICT BANNER 1</h1>
+                                <hr/>
+                                <p>STRICT is a responsive theme with a a clean and minimal look</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="item two">
+                <div class="banner-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h1>STRICT BANNER 2</h1>
+                                <hr/>
+                                <p>STRICT is a responsive theme with a a clean and minimal look</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container links">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a class="call-btn" href="#call_btn_link" > Call to action</a>
+                        </br>
+                        <a  href="#simple_and_pure_design" class="fa fa-angle-down fa-3x" aria-hidden="true"></a>
+                    </div>
+                </div>
+            </div>
+            <a id="simple_and_pure_design"></a>
         </div>
+
+        <!-- Left Right Controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </section>
     <!-- END BANNER -->
     <!-- SIMPLE AND PURE DESIGN -->
@@ -95,50 +135,51 @@
             <p>Contact me if you like my work</p>
         </div>
         <div class="portfolio--main">
-            <div class="row">
+            <div class="row list-image">
                 <div class="col-sm-6 col-md-4 portfolio--content">
                     <img src="./image/image1.jpg" alt="image1" class="img">
                     <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item" aria-hidden="true"></a>
+                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
                         <a class="fa fa-link flex-item" aria-hidden="true"></a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 portfolio--content">
                     <img src="./image/image2.jpg" alt="image1" class="img">
                     <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item" aria-hidden="true"></a>
+                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
                         <a class="fa fa-link flex-item" aria-hidden="true"></a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 portfolio--content">
                     <img src="./image/image2.jpg" alt="image1" class="img">
                     <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item" aria-hidden="true"></a>
+                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
                         <a class="fa fa-link flex-item" aria-hidden="true"></a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 portfolio--content">
                     <img src="./image/image4.jpg" alt="image1" class="img">
                     <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item" aria-hidden="true"></a>
+                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
                         <a class="fa fa-link flex-item" aria-hidden="true"></a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 portfolio--content">
                     <img src="./image/image5.jpg" alt="image1" class="img">
                     <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item" aria-hidden="true"></a>
+                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
                         <a class="fa fa-link flex-item" aria-hidden="true"></a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 portfolio--content">
                     <img src="./image/image6.jpg" alt="image1" class="img">
                     <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item" aria-hidden="true"></a>
+                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
                         <a class="fa fa-link flex-item" aria-hidden="true"></a>
                     </div>
                 </div>
             </div>
+            <a id="call_btn_link"></a>
         </div>
     </section>
     <!-- END PORTFOLIO-->
@@ -152,24 +193,27 @@
                         <p>We ensure quailty & support</p>
                     </div>
 
-                    <form action="#">
-                        <div class="form-group">
-                            <input type="text" name="fullname" placeholder="Full Name" class="form-control">
+                    <form action="#" id="form-id">
+                        <div class="form-group name">
+                            <input type="text" name="fullname" placeholder="Full Name" class="form-control" id="fullname">
+                            <span type="hidden" id="fullname_errors"></span>
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="email" placeholder="Email Address" class="form-control">
+                        <div class="form-group email">
+                            <input type="text" name="email" placeholder="Email Address" class="form-control" id="email">
+                            <span type="hidden" id="email_errors"></span>
                         </div>
-                        <div class="form-group">
-                            <textarea name="message" cols="30" rows="10" placeholder="Message" class="form-control"></textarea>
+                        <div class="form-group messsage">
+                            <textarea name="message" cols="30" rows="10" placeholder="Message" class="form-control" id="message"></textarea>
+                            <span type="hidden" id="message_errors"></span>
                         </div>
                         <div class="form--submit">
                             <div class="row">
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-6" id="remember_me">
+                                <div class="col-md-6" id="remember_me">
                                     <input type="checkbox" name="check" id="form--checbox">
                                     <label for="form--checbox">Subscribe Newsletter</label>
                                 </div>
-                                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-6" id="submit_btn">
-                                    <button type="submit" name="submmit" class="btn btn-primary">Send</button>
+                                <div class="col-md-6" id="submit_btn">
+                                    <button type="submit" name="submit" class="btn btn-primary">Send</button>
                                 </div>
                             </div>
                         </div>
@@ -194,5 +238,30 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <img src="#" alt="image1" class="img" id="modal-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+                <a class="fa fa-chevron-left fa-2x prev" href="" aria-hidden="true" id="pre_button"></a>
+                <a class="fa fa-chevron-right fa-2x next" href="" aria-hidden="true" id="next_button"></a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
