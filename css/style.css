@@ -1,44 +1,51 @@
-body{
+body {
     background-color: #f6f9f9;
     font-family: "Lato";
 }
-.navbar{
+
+.navbar {
     min-height: 100px;
     margin-bottom: 0px;
     padding-top: 15px;
     background-color: #ffffff;
 }
+
 /*HEADER NAVBAR*/
 
-.navbar > .container .navbar-brand{
+.navbar > .container .navbar-brand {
     margin-left: 0px;
 }
-header{
+
+header {
     min-height: 100px;
 }
 
 /*BANNER*/
-.banner-content h1{
+.banner-content h1 {
     color: #ffffff;
     font-size: 120px;
     font-weight: bold;
 }
-.banner-content hr{
+
+.banner-content hr {
     border: solid 1px #15a4fa;
 }
-.banner-content p{
+
+.banner-content p {
     margin-top: 28px;
     color: #ffffff;
     font-size: 20px;
 }
-.links{
+
+.links {
     position: absolute;
     width: 100%;
     left: 0;
     top: 50%;
     text-align: center;
 }
-.call-btn{
+
+.call-btn {
     height: 55px;
     width: 180px;
     margin-top: 50px;
@@ -51,16 +58,18 @@ header{
     display: inline-block;
     text-align: center;
 }
-.call-btn:hover{
+
+.call-btn:hover {
     background-color: #286090;
     border-color: #204d74;
 }
 
-.links > .row> .col-xs-12> .fa-angle-down{
+.links > .row > .col-xs-12 > .fa-angle-down {
     color: white;
     text-decoration: none;
 }
-.banner-content{
+
+.banner-content {
     text-align: center;
 }
 
@@ -68,45 +77,50 @@ header{
     width: 100%;
 }
 
-.carousel .one{
+.carousel .one {
     background: url("../image/banner.jpg");
     background-size: cover;
     /*-moz-background-size: cover;*/
     background-position: center;
 }
 
-.carousel .two{
+.carousel .two {
     background: url("../image/foot_image.jpg");
     background-size: cover;
     background-position: center;
 }
 
 /*SIMPLE AND PURE DESIGN*/
-.page--header{
+.page--header {
     margin-bottom: 105px;
     margin-top: 40px;
 }
-#page-title{
+
+#page-title {
     margin-bottom: 15px;
     color: #2d3950;
     font-size: 41px;
 }
-#page-content{
+
+#page-content {
     color: #999999;
     font-size: 18px;
 }
-.page--feature{
+
+.page--feature {
     padding-top: 65px;
     padding-bottom: 65px;
     background-color: white;
     text-align: center;
 }
-.page--feature h3{
+
+.page--feature h3 {
     margin-top: 33px;
     margin-bottom: 15px;
     font-size: 24px;
 }
-.page--feature p{
+
+.page--feature p {
     margin-left: 10%;
     width: 80%;
     color: #999999;
@@ -114,32 +128,39 @@ header{
 }
 
 /*PORTFOLIO*/
-.portfolio{
+.portfolio {
     padding-top: 50px;
     padding-bottom: 60px;
 }
-.portfolio--title{
+
+.portfolio--title {
     margin-bottom: 80px;
     text-align: center;
 }
-.portfolio--title h3{
+
+.portfolio--title h3 {
     font-size: 41px;
 }
-.portfolio--title p{
+
+.portfolio--title p {
     color: #909090;
     font-size: 18px;
 }
-.portfolio--content{
+
+.portfolio--content {
     margin-bottom: 30px;
     text-align: center;
 }
-.img{
+
+.img {
     width: 100%;
     display: block;
 }
+
 .portfolio--content {
     position: relative;
 }
+
 .overlay {
     position: absolute;
     top: 0;
@@ -155,9 +176,11 @@ header{
     display: flex;
     background-color: #008CBA;
 }
+
 .portfolio--content:hover .overlay {
     opacity: 0.8;
 }
+
 .overlay > .fa {
     padding-top: 11px;
     height: 47px;
@@ -172,6 +195,7 @@ header{
     color: white;
     border: 3px solid white;
 }
+
 .overlay > .fa:hover {
     background-color: transparent;
     border: 3px solid black;
@@ -180,7 +204,7 @@ header{
 }
 
 /*STAY WITH US*/
-.form--box{
+.form--box {
     background-image: url("../image/stay_image.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -188,74 +212,89 @@ header{
     padding-top: 50px;
     padding-bottom: 100px;
 }
-.form--title{
+
+.form--title {
     text-align: center;
     margin-bottom: 53px;
 }
-.form--title h3{
+
+.form--title h3 {
     font-size: 41px;
     color: #ffffff;
     margin-bottom: 17px;
 }
-.form--title p{
+
+.form--title p {
     font-size: 15px;
     color: #999999;
 }
-#stay_with_us .form-group{
+
+#stay_with_us .form-group {
     width: 50%;
     margin-left: 25%;
 }
-.form-group > input{
+
+.form-group > input {
     height: 60px;
 }
+
 #stay_with_us .form-control {
     background: transparent;
     border: solid 1px #999999;
     color: white;
     font-size: 17px;
 }
-.form--submit{
+
+.form--submit {
     margin-left: 25%;
     width: 50%;
     height: 50px;
 }
-.form--submit > .row{
+
+.form--submit > .row {
     height: 100%;
 }
-#remember_me{
+
+#remember_me {
     height: 100%;
     padding-top: 11px;
 }
-#submit_btn{
+
+#submit_btn {
     height: 100%;
 }
-.form--submit label{
+
+.form--submit label {
     color: white;
     font-size: 18px;
     font-weight: normal;
     margin-left: 10px;
 }
-.form--submit button{
+
+.form--submit button {
     background: transparent;
     float: right;
     height: 100%;
     width: 50%;
 }
 
-.form-group span{
+.form-group span {
     color: red;
     font-size: 18px;
 }
+
 /*FOOTER*/
 
-footer{
+footer {
     min-height: 98px;
     color: #999999;
 }
-.social{
+
+.social {
     text-align: right;
 }
-.social > .fa{
+
+.social > .fa {
     padding-top: 12px;
     height: 43px;
     width: 43px;
@@ -268,36 +307,41 @@ footer{
     background: #15a4fa;
     color: white;
 }
+
 .social > .fa:hover {
     opacity: 0.7;
     background-color: blue;
 }
-footer > .container{
+
+footer > .container {
     padding-top: 30px;
 }
-.copyright{
+
+.copyright {
     padding-top: 15px;
     font-size: 15px;
 }
 
 /* Modal*/
 
-.modal-content h4{
+.modal-content h4 {
     font-weight: bold;
 }
-.modal-content p{
+
+.modal-content p {
     word-wrap: break-word;
 }
 
-.modal-content > .prev{
+.modal-content > .prev {
     position: absolute;
     left: 0.5%;
     top: 45%;
     text-decoration: none;
 }
-.modal-content > .next{
+
+.modal-content > .next {
     position: absolute;
     right: 0.5%;
-    top:45%;
+    top: 45%;
     text-decoration: none;
 }

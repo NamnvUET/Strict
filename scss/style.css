@@ -1,0 +1,229 @@
+body {
+  background-color: #f6f9f9;
+  font-family: "Lato"; }
+
+header, header .navbar {
+  min-height: 100px;
+  background-color: #ffffff; }
+  header .navbar {
+    margin-bottom: 0px;
+    padding-top: 15px; }
+    header .navbar .navbar-brand {
+      margin-left: 0px; }
+
+#myCarousel .item, #myCarousel .links {
+  width: 100%; }
+  #myCarousel .item .banner-content, #myCarousel .links .banner-content {
+    text-align: center; }
+    #myCarousel .item .banner-content h1, #myCarousel .links .banner-content h1 {
+      color: #ffffff;
+      font-size: 120px;
+      font-weight: bold; }
+    #myCarousel .item .banner-content hr, #myCarousel .links .banner-content hr {
+      border: solid 1px #15a4fa; }
+    #myCarousel .item .banner-content p, #myCarousel .links .banner-content p {
+      margin-top: 28px;
+      color: #ffffff;
+      font-size: 20px; }
+#myCarousel .one {
+  background: url("../image/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+#myCarousel .two {
+  background: url("../image/foot_image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+#myCarousel .links {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  text-align: center; }
+  #myCarousel .links .call-btn {
+    height: 55px;
+    width: 180px;
+    margin-top: 50px;
+    padding-top: 13px;
+    border: solid 1px #15a4fa;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center; }
+    #myCarousel .links .call-btn :hover {
+      background-color: #286090;
+      border-color: #204d74; }
+  #myCarousel .links .fa-angle-down {
+    color: #ffffff;
+    text-decoration: none; }
+
+.page--header {
+  margin-bottom: 105px;
+  margin-top: 40px; }
+  .page--header #page-title {
+    margin-bottom: 15px;
+    color: #2d3950;
+    font-size: 41px; }
+  .page--header #page-content {
+    color: #999999;
+    font-size: 18px; }
+
+.page--feature {
+  padding-top: 65px;
+  padding-bottom: 65px;
+  background-color: #ffffff;
+  text-align: center; }
+  .page--feature h3 {
+    margin-top: 33px;
+    margin-bottom: 15px;
+    font-size: 24px; }
+  .page--feature p {
+    margin-left: 10%;
+    width: 80%;
+    color: #999999;
+    font-size: 15px; }
+
+.portfolio {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 60px; }
+  .portfolio .portfolio--title {
+    margin-bottom: 80px; }
+    .portfolio .portfolio--title h3 {
+      font-size: 41px; }
+    .portfolio .portfolio--title p {
+      color: #909090;
+      font-size: 18px; }
+  .portfolio .portfolio--main .portfolio--content {
+    margin-bottom: 30px;
+    position: relative; }
+    .portfolio .portfolio--main .portfolio--content .img {
+      width: 100%;
+      display: block; }
+    .portfolio .portfolio--main .portfolio--content .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      margin: 0px 15px;
+      justify-content: center;
+      align-items: center;
+      transition: all;
+      transition-duration: 0.5s;
+      display: flex;
+      background-color: #008CBA; }
+      .portfolio .portfolio--main .portfolio--content .overlay .fa {
+        padding-top: 11px;
+        height: 47px;
+        width: 47px;
+        margin: 5px 3px;
+        border-radius: 3px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font-size: 20px;
+        background: #15a4fa;
+        color: white;
+        border: 3px solid white; }
+        .portfolio .portfolio--main .portfolio--content .overlay .fa:hover {
+          background-color: transparent;
+          border: 3px solid black;
+          color: black;
+          transition: 0.5s; }
+    .portfolio .portfolio--main .portfolio--content:hover .overlay {
+      opacity: 0.8; }
+
+.form--box {
+  background-image: url("../image/stay_image.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 50px;
+  padding-bottom: 100px; }
+  .form--box .form--title {
+    text-align: center;
+    margin-bottom: 53px; }
+    .form--box .form--title h3 {
+      font-size: 41px;
+      color: #ffffff;
+      margin-bottom: 17px; }
+    .form--box .form--title p {
+      font-size: 15px;
+      color: #999999; }
+  .form--box #form-id .form-group {
+    width: 50%;
+    margin-left: 25%; }
+    .form--box #form-id .form-group input {
+      height: 60px; }
+    .form--box #form-id .form-group .form-control {
+      background: transparent;
+      border: solid 1px #999999;
+      color: #ffffff;
+      font-size: 17px; }
+    .form--box #form-id .form-group span {
+      color: red;
+      font-size: 18px; }
+  .form--box #form-id .form--submit {
+    margin-left: 25%;
+    width: 50%;
+    height: 50px; }
+    .form--box #form-id .form--submit .row, .form--box #form-id .form--submit .row #remember_me, .form--box #form-id .form--submit .row #submit_btn, .form--box #form-id .form--submit .row #submit_btn button {
+      height: 100%; }
+      .form--box #form-id .form--submit .row #remember_me, .form--box #form-id .form--submit .row #submit_btn button #remember_me {
+        padding-top: 11px; }
+        .form--box #form-id .form--submit .row #remember_me label {
+          color: #ffffff;
+          font-size: 18px;
+          font-weight: normal;
+          margin-left: 10px; }
+      .form--box #form-id .form--submit .row #submit_btn button {
+        background: transparent;
+        float: right;
+        width: 50%; }
+
+footer {
+  min-height: 98px;
+  color: #999999; }
+  footer .container {
+    padding-top: 30px; }
+    footer .container .copyright {
+      padding-top: 15px;
+      font-size: 15px; }
+    footer .container .social {
+      text-align: right; }
+      footer .container .social .fa {
+        padding-top: 12px;
+        height: 47px;
+        width: 47px;
+        border-radius: 3px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 3px;
+        font-size: 20px;
+        background: #15a4fa;
+        color: white; }
+        footer .container .social .fa:hover {
+          opacity: 0.7;
+          background-color: blue; }
+
+.modal-content #modal-image {
+  width: 100%; }
+.modal-content .prev {
+  position: absolute;
+  left: 0.5%;
+  top: 45%;
+  text-decoration: none; }
+.modal-content .next {
+  position: absolute;
+  right: 0.5%;
+  top: 45%;
+  text-decoration: none; }
+.modal-content p {
+  word-wrap: break-word; }
+
+/*# sourceMappingURL=style.css.map */

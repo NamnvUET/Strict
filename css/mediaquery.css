@@ -1,187 +1,233 @@
 /*Large device @sceen-lg*/
-@media (min-width: 1200px)
-{
-    .carousel .item{
+@media (min-width: 1200px) {
+    .carousel .item {
         min-height: 800px;
     }
-    .banner-content{
+
+    .banner-content {
         padding-top: 200px;
     }
-    .banner-content p{
+
+    .banner-content p {
         font-size: 22px;
     }
-    .banner-content hr{
+
+    .banner-content hr {
         width: 60%;
     }
-    .call-btn{
+
+    .call-btn {
         margin-top: 110px;
     }
-    .links > .row> .col-xs-12> .fa-angle-down{
+
+    .links > .row > .col-xs-12 > .fa-angle-down {
         margin-top: 135px;
     }
-    .modal-lg{
+
+    .modal-lg {
         width: 800px;
     }
 }
+
 /*Medium devive @sceen-md*/
-@media (min-width: 992px) and (max-width: 1199px)
-{
-    .carousel .item{
+@media (min-width: 992px) and (max-width: 1199px) {
+    .carousel .item {
         min-height: 700px;
     }
-    .banner-content{
+
+    .banner-content {
         padding-top: 100px;
     }
-    .banner-content h1{
+
+    .banner-content h1 {
         font-size: 95px;
     }
-    .banner-content p{
+
+    .banner-content p {
         font-size: 18px;
     }
-    .banner-content hr{
+
+    .banner-content hr {
         width: 65%;
     }
-    .call-btn{
+
+    .call-btn {
         margin-top: 90px;
     }
-    .links > .row> .col-xs-12> .fa-angle-down{
+
+    .links > .row > .col-xs-12 > .fa-angle-down {
         margin-top: 120px;
     }
 }
+
 /*Small devices @sceen-sm*/
-@media (min-width: 768px) and (max-width: 991px)
-{
-    .carousel .item{
+@media (min-width: 768px) and (max-width: 991px) {
+    .carousel .item {
         min-height: 550px;
     }
-    .banner-content{
+
+    .banner-content {
         padding-top: 75px;
     }
-    .banner-content h1{
+
+    .banner-content h1 {
         font-size: 70px;
     }
-    .banner-content hr{
+
+    .banner-content hr {
         width: 80%;
     }
-    .banner-content p{
+
+    .banner-content p {
         font-size: 18px;
     }
-    .call-btn{
+
+    .call-btn {
         margin-top: 70px;
     }
-    .links > .row> .col-xs-12> .fa-angle-down{
+
+    .links > .row > .col-xs-12 > .fa-angle-down {
         margin-top: 77px;
     }
+
     #stay_with_us .form-group {
         width: 60%;
         margin-left: 20%;
     }
-    .form--submit{
+
+    .form--submit {
         width: 60%;
         margin-left: 20%;
     }
-    #remember_me{
+
+    #remember_me {
         padding-top: 16px;
     }
-    .form--submit label{
+
+    .form--submit label {
         font-size: 14px;
     }
 }
+
 /*Extra small devices < 767px @sceen-xs*/
-@media (min-width: 480px) and (max-width: 767px)
-{
-    .carousel .item{
+@media (min-width: 480px) and (max-width: 767px) {
+    .carousel .item {
         min-height: 500px;
     }
-    .banner-content{
+
+    .banner-content {
         padding-top: 70px;
     }
-    .banner-content h1{
+
+    .banner-content h1 {
         font-size: 50px;
     }
-    .banner-content hr{
+
+    .banner-content hr {
         width: 70%;
     }
-    .banner-content p{
+
+    .banner-content p {
         font-size: 16px;
     }
-    .links > .row> .col-xs-12> .fa-angle-down{
+
+    .links > .row > .col-xs-12 > .fa-angle-down {
         margin-top: 70px;
     }
-    .page--feature .col-sm-4{
-        margin-bottom: 20px;
-    }
-    .copyright{
-        text-align: center;
-    }
-    .social{
-        text-align: center;
-        margin-top: 15px;
-    }
-    #stay_with_us .form-group {
-        width: 64%;
-        margin-left: 18%;
-    }
-    .form--submit {
-        width: 64%;
-        margin-left: 18%;
-    }
-    #remember_me{
-        text-align: center;
-    }
-    .form--submit button {
-        float: none;
-    }
-    #submit_btn{
-        text-align: center;
-    }
-}
-@media (max-width: 479px)
-{
-    .carousel .item{
-        min-height: 450px;
-    }
-    .banner-content{
-        padding-top: 70px;
-    }
-    .banner-content h1{
-        font-size: 40px;
-    }
-    .banner-content p{
-        font-size: 15px;
-    }
-    .links > .row> .col-xs-12> .fa-angle-down{
-        margin-top: 55px;
-    }
-    .page--feature .col-sm-4{
+
+    .page--feature .col-sm-4 {
         margin-bottom: 20px;
     }
 
-    .copyright{
+    .copyright {
         text-align: center;
     }
-    .social{
+
+    .social {
         text-align: center;
         margin-top: 15px;
     }
+
+    #stay_with_us .form-group {
+        width: 64%;
+        margin-left: 18%;
+    }
+
+    .form--submit {
+        width: 64%;
+        margin-left: 18%;
+    }
+
+    #remember_me {
+        text-align: center;
+    }
+
+    .form--submit button {
+        float: none;
+    }
+
+    #submit_btn {
+        text-align: center;
+    }
+}
+
+@media (max-width: 479px) {
+    .carousel .item {
+        min-height: 450px;
+    }
+
+    .banner-content {
+        padding-top: 70px;
+    }
+
+    .banner-content h1 {
+        font-size: 40px;
+    }
+
+    .banner-content p {
+        font-size: 15px;
+    }
+
+    .links > .row > .col-xs-12 > .fa-angle-down {
+        margin-top: 55px;
+    }
+
+    .page--feature .col-sm-4 {
+        margin-bottom: 20px;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    .social {
+        text-align: center;
+        margin-top: 15px;
+    }
+
     #stay_with_us .form-group {
         width: 80%;
         margin-left: 10%;
     }
+
     .form--submit {
         width: 80%;
         margin-left: 10%;
     }
-    .footer > .container{
+
+    .footer > .container {
         padding-top: 15px;
     }
-    #remember_me{
+
+    #remember_me {
         text-align: center;
     }
+
     .form--submit button {
         float: none;
     }
-    #submit_btn{
+
+    #submit_btn {
         text-align: center;
     }
 }

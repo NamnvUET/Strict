@@ -60,7 +60,10 @@ $(document).ready(function () {
             pre_content = $(".portfolio--content").last();
         }
         var pre_image_src = pre_content.children(".img").attr("src");
-        $("#modal-image").attr("src",pre_image_src);
+        $("#modal-image").fadeOut(function(){
+            $("#modal-image").attr("src",pre_image_src);
+        });
+        $("#modal-image").fadeIn(1000);
         current_content.removeClass("active");
         pre_content.addClass("active");
         return false;
@@ -75,7 +78,10 @@ $(document).ready(function () {
             next_content = $(".portfolio--content").first();
         }
         var next_image_src = next_content.children(".img").attr("src");
-        $("#modal-image").attr("src",next_image_src);
+        $("#modal-image").fadeOut(function () {
+            $("#modal-image").attr("src",next_image_src);
+        });
+        $("#modal-image").fadeIn(1000);
         current_content.removeClass("active");
         next_content.addClass("active");
         return false;

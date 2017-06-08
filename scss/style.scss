@@ -1,0 +1,298 @@
+$color-background: #f6f9f9;
+$color-white: #ffffff;
+$color-gray: #999999;
+$color-border: #15a4fa;
+$font-family: "Lato";
+$font-size-big: 120px;
+$font-size-normal: 20px;
+
+%image-responsive {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+%icon {
+  padding-top: 11px;
+  height: 47px;
+  width: 47px;
+  margin: 5px 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  background: #15a4fa;
+  color: white;
+}
+
+body {
+  background-color: $color-background;
+  font-family: $font-family;
+}
+
+header {
+  min-height: 100px;
+  background-color: $color-white;
+  .navbar {
+    @extend header;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    .navbar-brand {
+      margin-left: 0px;
+    }
+  }
+}
+
+#myCarousel {
+  .item {
+    width: 100%;
+    .banner-content {
+      text-align: center;
+      h1 {
+        color: $color-white;
+        font-size: $font-size-big;
+        font-weight: bold;
+      }
+      hr {
+        border: solid 1px $color-border;
+      }
+      p {
+        margin-top: 28px;
+        color: $color-white;
+        font-size: 20px;
+      }
+
+    }
+  }
+  .one {
+    background: url("../image/banner.jpg");
+    @extend %image-responsive;
+  }
+  .two {
+    background: url("../image/foot_image.jpg");
+    @extend %image-responsive;
+  }
+  .links {
+    position: absolute;
+    @extend .item;
+    left: 0;
+    top: 50%;
+    text-align: center;
+    .call-btn {
+      height: 55px;
+      width: 180px;
+      margin-top: 50px;
+      padding-top: 13px;
+      border: solid 1px $color-border;
+      color: $color-white;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      :hover {
+        background-color: #286090;
+        border-color: #204d74;
+      }
+    }
+    .fa-angle-down {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+  }
+}
+
+.page--header {
+  margin: 40px 0px 105px 0px;
+  #page-title {
+    margin-bottom: 15px;
+    color: #2d3950;
+    font-size: 41px;
+  }
+  #page-content {
+    color: $color-gray;
+    font-size: 18px;
+  }
+}
+
+.page--feature {
+  padding-top: 65px;
+  padding-bottom: 65px;
+  background-color: $color-white;
+  text-align: center;
+  h3 {
+    margin-top: 33px;
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  p {
+    margin-left: 10%;
+    width: 80%;
+    color: $color-gray;
+    font-size: 15px;
+  }
+}
+
+.portfolio {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 60px;
+  .portfolio--title {
+    margin-bottom: 80px;
+    h3 {
+      font-size: 41px;
+    }
+    p {
+      color: #909090;
+      font-size: 18px;
+    }
+  }
+  .portfolio--main {
+    .portfolio--content {
+      margin-bottom: 30px;
+      position: relative;
+      .img {
+        width: 100%;
+        display: block;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        margin: 0px 15px;
+        justify-content: center;
+        align-items: center;
+        transition: all;
+        transition-duration: 0.5s;
+        display: flex;
+        background-color: #008CBA;
+        .fa {
+          @extend %icon;
+          border: 3px solid white;
+          &:hover {
+            background-color: transparent;
+            border: 3px solid black;
+            color: black;
+            transition: 0.5s;
+          }
+        }
+      }
+      &:hover .overlay {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .form--box {
+    background-image: url("../image/stay_image.jpg");
+    @include image-responsive;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    .form--title {
+      text-align: center;
+      margin-bottom: 53px;
+      h3 {
+        font-size: 41px;
+        color: $color-white;
+        margin-bottom: 17px;
+      }
+      p {
+        font-size: 15px;
+        color: $color-gray;
+      }
+    }
+    #form-id {
+      .form-group {
+        width: 50%;
+        margin-left: 25%;
+        input {
+          height: 60px;
+        }
+        .form-control {
+          background: transparent;
+          border: solid 1px $color-gray;
+          color: $color-white;
+          font-size: 17px;
+        }
+        span {
+          color: red;
+          font-size: 18px;
+        }
+      }
+      .form--submit {
+        margin-left: 25%;
+        width: 50%;
+        height: 50px;
+        .row {
+          height: 100%;
+          #remember_me {
+            @extend .row;
+            padding-top: 11px;
+            label {
+              color: $color-white;
+              font-size: 18px;
+              font-weight: normal;
+              margin-left: 10px;
+            }
+          }
+          #submit_btn {
+            @extend .row;
+            button {
+              background: transparent;
+              float: right;
+              @extend .row;
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    min-height: 98px;
+    color: $color-gray;
+    .container {
+      padding-top: 30px;
+      .copyright {
+        padding-top: 15px;
+        font-size: 15px;
+      }
+      .social {
+        text-align: right;
+        .fa {
+          @extend %icon;
+          &:hover {
+            opacity: 0.7;
+            background-color: blue;
+          }
+        }
+      }
+    }
+  }
+
+  .modal-content {
+    #modal-image {
+      width: 100%;
+    }
+    .prev {
+      position: absolute;
+      left: 0.5%;
+      top: 45%;
+      text-decoration: none;
+    }
+    .next {
+      position: absolute;
+      right: 0.5%;
+      top: 45%;
+      text-decoration: none;
+    }
+    p {
+      word-wrap: break-word;
+    }
+  }

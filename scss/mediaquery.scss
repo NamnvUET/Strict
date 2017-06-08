@@ -1,0 +1,232 @@
+@media (min-width: 1200px) {
+  #myCarousel {
+    .item {
+      min-height: 800px;
+      .banner-content {
+        padding-top: 200px;
+        p {
+          font-size: 22px;
+        }
+        hr {
+          width: 60%;
+        }
+      }
+    }
+    .links {
+      .call-btn {
+        margin-top: 110px;
+      }
+      .fa-angle-down {
+        margin-top: 135px;
+      }
+    }
+  }
+  .modal-lg {
+    width: 800px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #myCarousel {
+    .item {
+      min-height: 700px;
+      .banner-content {
+        padding-top: 100px;
+        h1 {
+          font-size: 95px;
+        }
+        p {
+          font-size: 18px;
+        }
+        hr {
+          width: 65%;
+        }
+      }
+    }
+    .links {
+      .call-btn {
+        margin-top: 90px;
+      }
+      .fa-angle-down {
+        margin-top: 120px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #myCarousel {
+    .item {
+      min-height: 550px;
+      .banner-content {
+        padding-top: 75px;
+        h1 {
+          font-size: 70px;
+        }
+        p {
+          font-size: 18px;
+        }
+        hr {
+          width: 80%;
+        }
+      }
+    }
+    .links {
+      .call-btn {
+        margin-top: 70px;
+      }
+      .fa-angle-down {
+        margin-top: 70px;
+      }
+    }
+  }
+  .form--box {
+    #form-id {
+      .form-group {
+        width: 60%;
+        margin-left: 20%;
+      }
+      .form--submit {
+        width: 60%;
+        margin-left: 20%;
+        .row {
+          #remember_me {
+            text-align: center;
+          }
+          #submit_btn {
+            text-align: center;
+            button {
+              float: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  #myCarousel {
+    .item {
+      min-height: 500px;
+      .banner-content {
+        padding-top: 70px;
+        h1 {
+          font-size: 50px;
+        }
+        p {
+          font-size: 16px;
+        }
+        hr {
+          width: 70%;
+        }
+      }
+    }
+    .links {
+      .fa-angle-down {
+        margin-top: 70px;
+      }
+    }
+  }
+  .page--feature {
+    .col-sm-4 {
+      margin-bottom: 20px;
+    }
+  }
+  .form--box {
+    #form-id {
+      .form-group {
+        width: 64%;
+        margin-left: 18%;
+      }
+      .form--submit {
+        width: 64%;
+        margin-left: 18%;
+        .row {
+          #remember_me {
+            text-align: center;
+          }
+          #submit_btn {
+            text-align: center;
+            button {
+              float: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    .container {
+      .copyright {
+        text-align: center;
+      }
+      .social {
+        text-align: center;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  #myCarousel {
+    .item {
+      min-height: 450px;
+      .banner-content {
+        padding-top: 70px;
+        h1 {
+          font-size: 40px;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+    .links {
+      .fa-angle-down {
+        margin-top: 55px;
+      }
+    }
+  }
+  .page--feature {
+    .col-sm-4 {
+      margin-bottom: 20px;
+    }
+  }
+  .form--box {
+    #form-id {
+      .form-group {
+        width: 80%;
+        margin-left: 10%;
+      }
+      .form--submit {
+        width: 80%;
+        margin-left: 10%;
+        .row {
+          #remember_me {
+            text-align: center;
+          }
+          #submit_btn {
+            text-align: center;
+            button {
+              float: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    .container {
+      padding-top: 15px;
+      .copyright {
+        text-align: center;
+      }
+      .social {
+        text-align: center;
+        margin-top: 15px;
+      }
+    }
+  }
+}

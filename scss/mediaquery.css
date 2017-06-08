@@ -1,0 +1,131 @@
+@media (min-width: 1200px) {
+  #myCarousel .item {
+    min-height: 800px; }
+    #myCarousel .item .banner-content {
+      padding-top: 200px; }
+      #myCarousel .item .banner-content p {
+        font-size: 22px; }
+      #myCarousel .item .banner-content hr {
+        width: 60%; }
+  #myCarousel .links .call-btn {
+    margin-top: 110px; }
+  #myCarousel .links .fa-angle-down {
+    margin-top: 135px; }
+
+  .modal-lg {
+    width: 800px; } }
+@media (min-width: 992px) and (max-width: 1199px) {
+  #myCarousel .item {
+    min-height: 700px; }
+    #myCarousel .item .banner-content {
+      padding-top: 100px; }
+      #myCarousel .item .banner-content h1 {
+        font-size: 95px; }
+      #myCarousel .item .banner-content p {
+        font-size: 18px; }
+      #myCarousel .item .banner-content hr {
+        width: 65%; }
+  #myCarousel .links .call-btn {
+    margin-top: 90px; }
+  #myCarousel .links .fa-angle-down {
+    margin-top: 120px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  #myCarousel .item {
+    min-height: 550px; }
+    #myCarousel .item .banner-content {
+      padding-top: 75px; }
+      #myCarousel .item .banner-content h1 {
+        font-size: 70px; }
+      #myCarousel .item .banner-content p {
+        font-size: 18px; }
+      #myCarousel .item .banner-content hr {
+        width: 80%; }
+  #myCarousel .links .call-btn {
+    margin-top: 70px; }
+  #myCarousel .links .fa-angle-down {
+    margin-top: 70px; }
+
+  .form--box #form-id .form-group {
+    width: 60%;
+    margin-left: 20%; }
+  .form--box #form-id .form--submit {
+    width: 60%;
+    margin-left: 20%; }
+    .form--box #form-id .form--submit .row #remember_me {
+      text-align: center; }
+    .form--box #form-id .form--submit .row #submit_btn {
+      text-align: center; }
+      .form--box #form-id .form--submit .row #submit_btn button {
+        float: none; } }
+@media (min-width: 480px) and (max-width: 767px) {
+  #myCarousel .item {
+    min-height: 500px; }
+    #myCarousel .item .banner-content {
+      padding-top: 70px; }
+      #myCarousel .item .banner-content h1 {
+        font-size: 50px; }
+      #myCarousel .item .banner-content p {
+        font-size: 16px; }
+      #myCarousel .item .banner-content hr {
+        width: 70%; }
+  #myCarousel .links .fa-angle-down {
+    margin-top: 70px; }
+
+  .page--feature .col-sm-4 {
+    margin-bottom: 20px; }
+
+  .form--box #form-id .form-group {
+    width: 64%;
+    margin-left: 18%; }
+  .form--box #form-id .form--submit {
+    width: 64%;
+    margin-left: 18%; }
+    .form--box #form-id .form--submit .row #remember_me {
+      text-align: center; }
+    .form--box #form-id .form--submit .row #submit_btn {
+      text-align: center; }
+      .form--box #form-id .form--submit .row #submit_btn button {
+        float: none; }
+
+  footer .container .copyright {
+    text-align: center; }
+  footer .container .social {
+    text-align: center;
+    margin-top: 15px; } }
+@media (max-width: 479px) {
+  #myCarousel .item {
+    min-height: 450px; }
+    #myCarousel .item .banner-content {
+      padding-top: 70px; }
+      #myCarousel .item .banner-content h1 {
+        font-size: 40px; }
+      #myCarousel .item .banner-content p {
+        font-size: 15px; }
+  #myCarousel .links .fa-angle-down {
+    margin-top: 55px; }
+
+  .page--feature .col-sm-4 {
+    margin-bottom: 20px; }
+
+  .form--box #form-id .form-group {
+    width: 80%;
+    margin-left: 10%; }
+  .form--box #form-id .form--submit {
+    width: 80%;
+    margin-left: 10%; }
+    .form--box #form-id .form--submit .row #remember_me {
+      text-align: center; }
+    .form--box #form-id .form--submit .row #submit_btn {
+      text-align: center; }
+      .form--box #form-id .form--submit .row #submit_btn button {
+        float: none; }
+
+  footer .container {
+    padding-top: 15px; }
+    footer .container .copyright {
+      text-align: center; }
+    footer .container .social {
+      text-align: center;
+      margin-top: 15px; } }
+
+/*# sourceMappingURL=mediaquery.css.map */
