@@ -1,3 +1,21 @@
+#myCarousel .image-carousel, .form--box {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+.portfolio .portfolio--main .portfolio--content .overlay .fa, footer .container .social .fa {
+  padding-top: 11px;
+  height: 47px;
+  width: 47px;
+  margin: 5px 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  background: #15a4fa;
+  color: white; }
+
 body {
   background-color: #f6f9f9;
   font-family: "Lato"; }
@@ -11,30 +29,18 @@ header, header .navbar {
     header .navbar .navbar-brand {
       margin-left: 0px; }
 
-#myCarousel .item, #myCarousel .links {
-  width: 100%; }
-  #myCarousel .item .banner-content, #myCarousel .links .banner-content {
-    text-align: center; }
-    #myCarousel .item .banner-content h1, #myCarousel .links .banner-content h1 {
-      color: #ffffff;
-      font-size: 120px;
-      font-weight: bold; }
-    #myCarousel .item .banner-content hr, #myCarousel .links .banner-content hr {
-      border: solid 1px #15a4fa; }
-    #myCarousel .item .banner-content p, #myCarousel .links .banner-content p {
-      margin-top: 28px;
-      color: #ffffff;
-      font-size: 20px; }
-#myCarousel .one {
-  background: url("../image/banner.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; }
-#myCarousel .two {
-  background: url("../image/foot_image.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; }
+#myCarousel .item .banner-content, #myCarousel .links .banner-content {
+  text-align: center; }
+  #myCarousel .item .banner-content h1, #myCarousel .links .banner-content h1 {
+    color: #ffffff;
+    font-size: 120px;
+    font-weight: bold; }
+  #myCarousel .item .banner-content hr, #myCarousel .links .banner-content hr {
+    border: solid 1px #15a4fa; }
+  #myCarousel .item .banner-content p, #myCarousel .links .banner-content p {
+    margin-top: 28px;
+    color: #ffffff;
+    font-size: 20px; }
 #myCarousel .links {
   position: absolute;
   left: 0;
@@ -60,8 +66,7 @@ header, header .navbar {
     text-decoration: none; }
 
 .page--header {
-  margin-bottom: 105px;
-  margin-top: 40px; }
+  margin: 40px 0px 105px 0px; }
   .page--header #page-title {
     margin-bottom: 15px;
     color: #2d3950;
@@ -117,17 +122,6 @@ header, header .navbar {
       display: flex;
       background-color: #008CBA; }
       .portfolio .portfolio--main .portfolio--content .overlay .fa {
-        padding-top: 11px;
-        height: 47px;
-        width: 47px;
-        margin: 5px 3px;
-        border-radius: 3px;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-        font-size: 20px;
-        background: #15a4fa;
-        color: white;
         border: 3px solid white; }
         .portfolio .portfolio--main .portfolio--content .overlay .fa:hover {
           background-color: transparent;
@@ -139,9 +133,6 @@ header, header .navbar {
 
 .form--box {
   background-image: url("../image/stay_image.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   padding-top: 50px;
   padding-bottom: 100px; }
   .form--box .form--title {
@@ -195,21 +186,9 @@ footer {
       font-size: 15px; }
     footer .container .social {
       text-align: right; }
-      footer .container .social .fa {
-        padding-top: 12px;
-        height: 47px;
-        width: 47px;
-        border-radius: 3px;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-        margin: 5px 3px;
-        font-size: 20px;
-        background: #15a4fa;
-        color: white; }
-        footer .container .social .fa:hover {
-          opacity: 0.7;
-          background-color: blue; }
+      footer .container .social .fa:hover {
+        opacity: 0.7;
+        background-color: blue; }
 
 .modal-content #modal-image {
   width: 100%; }

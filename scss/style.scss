@@ -46,7 +46,7 @@ header {
 
 #myCarousel {
   .item {
-    width: 100%;
+    //width: 100%;
     .banner-content {
       text-align: center;
       h1 {
@@ -65,12 +65,15 @@ header {
 
     }
   }
-  .one {
-    background: url("../image/banner.jpg");
-    @extend %image-responsive;
-  }
-  .two {
-    background: url("../image/foot_image.jpg");
+  //.one {
+  //  background: url("../image/banner.jpg");
+  //  @extend %image-responsive;
+  //}
+  //.two {
+  //  background: url("../image/foot_image.jpg");
+  //  @extend %image-responsive;
+  //}
+  .image-carousel{
     @extend %image-responsive;
   }
   .links {
@@ -187,10 +190,10 @@ header {
       }
     }
   }
-
+}
   .form--box {
     background-image: url("../image/stay_image.jpg");
-    @include image-responsive;
+    @extend %image-responsive;
     padding-top: 50px;
     padding-bottom: 100px;
     .form--title {

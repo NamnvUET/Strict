@@ -1,3 +1,8 @@
+<?php
+    ob_start();
+    include_once "./views/PDO_Connection.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +16,6 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato" type="text/css">
 
     <!--My CSS-->
-    <!--<link rel="stylesheet" type="text/css" href="./css/style.css">-->
     <link rel="stylesheet" href="./scss/style.css">
 
     <!-- Javascript -->
@@ -20,7 +24,6 @@
     <script src="js/myjs.js"></script>
 
     <!--Media Query-->
-    <!--<link rel="stylesheet" href="./css/mediaquery.css">-->
     <link rel="stylesheet" href="./scss/mediaquery.css">
 
     <!--Font awesome-->
@@ -46,33 +49,31 @@
     <section id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item active one">
-                <div class="banner-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <h1>STRICT BANNER 1</h1>
-                                <hr/>
-                                <p>STRICT is a responsive theme with a a clean and minimal look</p>
+            <?php
+            $queryData = $conn->prepare("SELECT title,description,image FROM banners");
+            $queryData->execute();
+            $result = $queryData->fetchALL();
+            $active = 1;
+            //var_dump($result);
+            foreach ($result as $value) {
+                $src = substr($value['image'],3);
+                ?>
+                <div class="item image-carousel" style="background-image: url('<?=$src?>')">
+                    <div class="banner-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <h1><?=$value['title']?></h1>
+                                    <hr/>
+                                    <p><?=$value['description']?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="item two">
-                <div class="banner-content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <h1>STRICT BANNER 2</h1>
-                                <hr/>
-                                <p>STRICT is a responsive theme with a a clean and minimal look</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                <?php
+            }
+            ?>
             <div class="container links">
                 <div class="row">
                     <div class="col-xs-12">
@@ -112,21 +113,21 @@
     <section class="page--feature">
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                    <img src="./image/icon1.jpg" alt="icon1">
-                    <h3>Optimized for all devices</h3>
-                    <p>STRICT has been designed to be fully  responsive on all devices</p>
-                </div>
-                <div class="col-sm-4">
-                    <img src="./image/icon2.jpg" alt="icon2">
-                    <h3>Optimized for all devices</h3>
-                    <p>STRICT has been designed to be fully  responsive on all devices</p>
-                </div>
-                <div class="col-sm-4">
-                    <img src="./image/icon3.jpg" alt="icon3">
-                    <h3>Optimized for all devices</h3>
-                    <p>STRICT has been designed to be fully  responsive on all devices</p>
-                </div>
+                <?php
+                    $queryData = $conn->prepare("SELECT title,icon,content FROM subpages LIMIT 3");
+                    $queryData->execute();
+                    $result = $queryData->fetchAll();
+                    foreach ($result as $value) {
+                        $src = substr($value["icon"], 3);
+                        ?>
+                            <div class="col-sm-4">
+                                <img src="<?= $src ?>" alt="icon image">
+                                <h3><?= $value['title']?></h3>
+                                <p><?= $value['content']?></p>
+                            </div>
+                        <?php
+                    }
+                ?>
             </div>
         </div>
     </section>
@@ -139,48 +140,24 @@
         </div>
         <div class="portfolio--main">
             <div class="row list-image">
-                <div class="col-sm-6 col-md-4 portfolio--content">
-                    <img src="./image/image1.jpg" alt="image1" class="img">
-                    <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
-                        <a class="fa fa-link flex-item" aria-hidden="true"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 portfolio--content">
-                    <img src="./image/image2.jpg" alt="image1" class="img">
-                    <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
-                        <a class="fa fa-link flex-item" aria-hidden="true"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 portfolio--content">
-                    <img src="./image/image2.jpg" alt="image1" class="img">
-                    <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
-                        <a class="fa fa-link flex-item" aria-hidden="true"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 portfolio--content">
-                    <img src="./image/image4.jpg" alt="image1" class="img">
-                    <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
-                        <a class="fa fa-link flex-item" aria-hidden="true"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 portfolio--content">
-                    <img src="./image/image5.jpg" alt="image1" class="img">
-                    <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
-                        <a class="fa fa-link flex-item" aria-hidden="true"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 portfolio--content">
-                    <img src="./image/image6.jpg" alt="image1" class="img">
-                    <div class="overlay flex-container">
-                        <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal" data-target="#myModal" aria-hidden="true"></a>
-                        <a class="fa fa-link flex-item" aria-hidden="true"></a>
-                    </div>
-                </div>
+                <?php
+                    $queryData = $conn->prepare("SELECT * FROM showcases LIMIT 10");
+                    $queryData->execute();
+                    $result = $queryData->fetchALL();
+                    foreach ($result as $value) {
+                        $src = substr($value["showcase_image"], 3);
+                        ?>
+                        <div class="col-sm-6 col-md-4 portfolio--content">
+                            <img src="<?= $src ?>" alt="<?= $value['showcase_id']?>" class="img">
+                            <div class="overlay flex-container">
+                                <a class="fa fa-search-plus flex-item zoom-item" data-toggle="modal"
+                                   data-target="#myModal" aria-hidden="true"></a>
+                                <a class="fa fa-link flex-item" aria-hidden="true" href="<?=$value['showcase_home']?>"></a>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                ?>
             </div>
             <a id="call_btn_link"></a>
         </div>
@@ -196,7 +173,7 @@
                         <p>We ensure quailty & support</p>
                     </div>
 
-                    <form action="#" id="form-id">
+                    <form action="./views/Contents/contact/save.php" id="form-id" method="POST">
                         <div class="form-group name">
                             <input type="text" name="fullname" placeholder="Full Name" class="form-control" id="fullname">
                             <span type="hidden" id="fullname_errors"></span>
@@ -233,10 +210,17 @@
                     <span>Copyright 2014 STRICT</span>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-6 social">
-                    <a class="fa fa-facebook" aria-hidden="true"></a>
-                    <a class="fa fa-twitter" aria-hidden="true"></a>
-                    <a class="fa fa-google-plus" aria-hidden="true"></a>
-                    <a class="fa fa-linkedin" aria-hidden="true"></a>
+                    <?php
+                    $sql = "SELECT social_network,link from social_links limit 6";
+                    $queryData = $conn->prepare($sql);
+                    $queryData->execute();
+                    $result = $queryData->fetchALL();
+                    foreach ($result as $value) {
+                        ?>
+                            <a class="fa fa-<?=$value['social_network']?>" aria-hidden = "true" href="<?=$value['link']?>"></a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -253,6 +237,11 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <img src="#" alt="image1" class="img" id="modal-image">
+                            </div>
+                            <div class="col-xs-12">
+                                <div id="modal-detail">
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>

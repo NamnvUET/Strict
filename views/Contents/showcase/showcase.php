@@ -4,12 +4,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Manager Banner
+                Manager Showcase
             </h1>
             <ol class="breadcrumb">
                 <li><a href="./admin.php"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#" readonly>Banner</a></li>
-                <li class="active">View List Banner</li>
+                <li><a href="#" readonly>Showcase</a></li>
+                <li class="active">Manager Banner</li>
             </ol>
         </section>
 
@@ -19,7 +19,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">List Banner</h3>
+                            <h3 class="box-title">List Showcase</h3>
                             <button class="btn btn-md btn-primary add-new-btn" style="float: right" data-toggle="modal" data-target="#myModal" aria-hidden="true">Add new</button>
                         </div>
                         <!-- /.box-header -->
@@ -28,8 +28,9 @@
                                 <thead>
                                 <th>ID</th>
                                 <th style="width: 25%">Image</th>
-                                <th>Title</th>
+                                <th>Name</th>
                                 <th>Description</th>
+                                <th>HomePage</th>
                                 <th>Created_at</th>
                                 <th>Updated_at</th>
                                 <th>Chọn sửa</th>
@@ -37,7 +38,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $queryData = $conn->prepare("SELECT * FROM banners");
+                                $queryData = $conn->prepare("SELECT * FROM showcases");
                                 $queryData->execute();
                                 $result = $queryData->fetchALL();
                                 //var_dump($result);
@@ -45,14 +46,15 @@
                                     # code...
                                     ?>
                                     <tr>
-                                        <td class="banner_id-form"><?=$value['banner_id']?></td>
-                                        <td class="img-form"><img src="<?=$value['image']?>" alt="img" width="100%"></td>
-                                        <td class="title-form"><?=$value['title']?></td>
-                                        <td class="desc-form"><?=$value['description']?></td>
+                                        <td class="showcase_id-form"><?=$value['showcase_id']?></td>
+                                        <td class="img-form"><img src="<?=$value['showcase_image']?>" alt="img" width="100%"></td>
+                                        <td class="name-form"><?=$value['showcase_name']?></td>
+                                        <td class="desc-form"><?=$value['showcase_description']?></td>
+                                        <td class="homepage-form"><?=$value['showcase_home']?></td>
                                         <td><?= $value['created_at']?></td>
                                         <td><?= $value['updated_at']?></td>
                                         <td><button class="btn btn-primary btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Modify</button></td>
-                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/banner/delete.php?banner_id=<?=$value['banner_id']?>">Delete</a></td>
+                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/showcase/delete.php?showcase_id=<?=$value['showcase_id']?>">Delete</a></td>
                                     </tr>
                                     <?php
                                 }
@@ -81,47 +83,52 @@
                                 <div class="col-xs-12">
                                     <form role="form" enctype="multipart/form-data" method="POST">
                                         <div class="box-body" id="form-body">
-                                            <input type="text" id="banner_id" value="" name="banner_id" hidden>
+                                            <input type="text" id="showcase_id" value="" name="showcase_id" hidden>
                                             <div class="form-group">
-                                                <label for="title">Title Banner</label>
-                                                <input type="text" class="form-control" id="title" name="title" required>
+                                                <label for="name">Showcase Name</label>
+                                                <input type="text" class="form-control" id="showcase_name" name="showcase_name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <textarea col="30" row="10" class="form-control" id="description" name="description" required></textarea>
+                                                <label for="description">Showcase Description</label>
+                                                <textarea col="30" row="10" class="form-control" id="showcase_description" name="showcase_description" required></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="homepage">Homepage</label>
+                                                <input type="url" class="form-control" id="showcase_homepage" name="showcase_homepage" required>
                                             </div>
                                             <div class="form-group" id="form-modal-image">
-                                                <label for="image">Image Banner</label>
-                                                <input type="file" id="image" name="image" accept=".jpg,.png"  required>
+                                                <label for="image">Showcase Image</label>
+                                                <input type="file" id="image" name="image" accept=".jpg,.png" required>
                                             </div>
                                             <?php
-                                            if(isset($_POST['submit']))
-                                            {
-                                                $banner_id = isset($_POST['banner_id']) ? $_POST['banner_id'] : 0;
-                                                $title = isset($_POST['title']) ? $_POST['title'] : '';
-                                                $description = isset($_POST['description']) ? $_POST['description'] : '';
-
-                                                if($banner_id == 0)
+                                                if(isset($_POST['submit']))
                                                 {
-                                                    $uploaddir = ".././uploads/banners/";
-                                                    $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+                                                    $showcase_id = isset($_POST['showcase_id']) ? $_POST['showcase_id'] : 0;
+                                                    $showcase_name = isset($_POST['showcase_name']) ? $_POST['showcase_name'] : '';
+                                                    $showcase_description = isset($_POST['showcase_description']) ? $_POST['showcase_description'] : '';
+                                                    $showcase_home = isset($_POST['showcase_homepage']) ? $_POST['showcase_homepage'] : '';
 
-                                                    move_uploaded_file($_FILES['image']["tmp_name"], $uploadfile);
+                                                    if($showcase_id == 0)
+                                                    {
+                                                        $uploaddir = ".././uploads/showcases/";
+                                                        $uploadfile = $uploaddir . basename($_FILES['image']['name']);
 
-                                                    $sql = "INSERT INTO banners (title,description,image)
-                                                                VALUES ('$title','$description','$uploadfile')";
-                                                    $query = $conn->prepare($sql);
-                                                    $query->execute();
+                                                        move_uploaded_file($_FILES['image']["tmp_name"], $uploadfile);
+
+                                                        $sql = "INSERT INTO showcases (showcase_name,showcase_description,showcase_home,showcase_image)
+                                                                VALUES ('$showcase_name','$showcase_description','$showcase_home','$uploadfile')";
+                                                        $query = $conn->prepare($sql);
+                                                        $query->execute();
+                                                    }
+                                                    else{
+                                                        $sql = "UPDATE showcases
+                                                        SET showcase_name = '$showcase_name', showcase_description = '$showcase_description', showcase_home = '$showcase_home', updated_at = now()
+                                                        WHERE showcase_id = $showcase_id ";
+                                                        $query = $conn->prepare($sql);
+                                                        $query->execute();
+                                                    }
+                                                    header("Location: ./admin.php?page=showcase/showcase");
                                                 }
-                                                else{
-                                                    $sql = "UPDATE banners
-                                                        SET title = '$title', description = '$description', updated_at = now()
-                                                        WHERE banner_id = $banner_id ";
-                                                    $query = $conn->prepare($sql);
-                                                    $query->execute();
-                                                }
-                                                header("Location: ./admin.php?page=banner/banner");
-                                            }
                                             ?>
                                         </div>
                                         <!-- /.box-body -->
@@ -145,26 +152,29 @@
         $(document).ready(function () {
             $(".modify-btn").click(function () {
                 var row = $(this).parent().parent();
-                var banner_id = row.find(".banner_id-form").text();
+                var showcase_id = row.find(".showcase_id-form").text();
                 var img_src = row.find(".img-form").children().attr("src");
-                var title = row.find(".title-form").text();
+                var name = row.find(".name-form").text();
                 var description = row.find(".desc-form").text();
+                var homepage = row.find(".homepage-form").text();
 
-                $("#banner_id").attr("value", banner_id);
+                $("#showcase_id").attr("value", showcase_id);
                 $("#modal-image").attr("src",img_src);
                 $("#modal-image").removeClass("hidden");
                 $("#form-modal-image").addClass("hidden");
                 $("#image").removeAttr("required");
-                $("#title").val(title);
-                $("#description").val(description);
+                $("#showcase_name").val(name);
+                $("#showcase_description").val(description);
+                $("#showcase_homepage").val(homepage);
             });
             $(".add-new-btn").click(function () {
-                $("#banner_id").attr("value", 0);
+               $("#showcase_id").attr("value", 0);
                 $("#modal-image").addClass("hidden");
                 $("#form-modal-image").removeClass("hidden");
                 $("#image").prop("required",true);
-                $("#title").val("");
-                $("#description").val("");
+                $("#showcase_name").val("");
+                $("#showcase_description").val("");
+                $("#showcase_homepage").val("");
             });
         });
     </script>

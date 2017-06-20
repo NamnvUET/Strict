@@ -1,11 +1,10 @@
 <?php
-    try {
-    // Kết nối
-        $conn = new PDO("mysql:host=localhost;dbname=strict", 'phpmyadmin', 'nguyen979vannam');
-    // Thiết lập chế độ lỗi
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch (PDOException $e) {
-        echo "Kết nối thất bại: " . $e->getMessage();
-    }
+define('HOST', 'localhost');
+define('DB_NAME', 'strict');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'nguyenvannam');
+
+$conn = new PDO("mysql:host=".HOST.";dbname=".DB_NAME.";charset=utf8", DB_USERNAME, DB_PASSWORD);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>

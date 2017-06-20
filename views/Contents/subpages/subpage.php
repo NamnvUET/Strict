@@ -4,12 +4,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Manager Banner
+                Manager Subpages
             </h1>
             <ol class="breadcrumb">
                 <li><a href="./admin.php"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#" readonly>Banner</a></li>
-                <li class="active">View List Banner</li>
+                <li class="active">View List Subpages</li>
             </ol>
         </section>
 
@@ -29,7 +28,7 @@
                                 <th>ID</th>
                                 <th style="width: 25%">Image</th>
                                 <th>Title</th>
-                                <th>Description</th>
+                                <th>Content</th>
                                 <th>Created_at</th>
                                 <th>Updated_at</th>
                                 <th>Chọn sửa</th>
@@ -37,7 +36,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $queryData = $conn->prepare("SELECT * FROM banners");
+                                $queryData = $conn->prepare("SELECT * FROM subpages");
                                 $queryData->execute();
                                 $result = $queryData->fetchALL();
                                 //var_dump($result);
@@ -45,14 +44,14 @@
                                     # code...
                                     ?>
                                     <tr>
-                                        <td class="banner_id-form"><?=$value['banner_id']?></td>
-                                        <td class="img-form"><img src="<?=$value['image']?>" alt="img" width="100%"></td>
+                                        <td class="subpage_id-form"><?=$value['subpage_id']?></td>
+                                        <td class="icon-form"><img src="<?=$value['icon']?>" alt="img"></td>
                                         <td class="title-form"><?=$value['title']?></td>
-                                        <td class="desc-form"><?=$value['description']?></td>
+                                        <td class="content-form"><?=$value['content']?></td>
                                         <td><?= $value['created_at']?></td>
                                         <td><?= $value['updated_at']?></td>
                                         <td><button class="btn btn-primary btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Modify</button></td>
-                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/banner/delete.php?banner_id=<?=$value['banner_id']?>">Delete</a></td>
+                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/subpages/delete.php?subpage_id=<?=$value['subpage_id']?>">Delete</a></td>
                                     </tr>
                                     <?php
                                 }
@@ -75,52 +74,52 @@
                     <div class="modal-body">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-xs-12">
-                                    <img src="#" alt="img" width="100%" id="modal-image">
+                                <div class="col-xs-12 text-center">
+                                    <img src="#" alt="img" id="modal-image">
                                 </div>
                                 <div class="col-xs-12">
                                     <form role="form" enctype="multipart/form-data" method="POST">
                                         <div class="box-body" id="form-body">
-                                            <input type="text" id="banner_id" value="" name="banner_id" hidden>
+                                            <input type="text" id="subpage_id" value="" name="subpage_id" hidden>
                                             <div class="form-group">
-                                                <label for="title">Title Banner</label>
+                                                <label for="title">Title</label>
                                                 <input type="text" class="form-control" id="title" name="title" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <textarea col="30" row="10" class="form-control" id="description" name="description" required></textarea>
+                                                <label for="content">Content</label>
+                                                <textarea col="30" row="10" class="form-control" id="content" name="content" required></textarea>
                                             </div>
                                             <div class="form-group" id="form-modal-image">
-                                                <label for="image">Image Banner</label>
-                                                <input type="file" id="image" name="image" accept=".jpg,.png"  required>
+                                                <label for="image">Image</label>
+                                                <input type="file" id="image" name="image" accept=".jpg,.png" required>
                                             </div>
                                             <?php
                                             if(isset($_POST['submit']))
                                             {
-                                                $banner_id = isset($_POST['banner_id']) ? $_POST['banner_id'] : 0;
+                                                $subpage_id = isset($_POST['subpage_id']) ? $_POST['subpage_id'] : 0;
                                                 $title = isset($_POST['title']) ? $_POST['title'] : '';
-                                                $description = isset($_POST['description']) ? $_POST['description'] : '';
+                                                $content = isset($_POST['content']) ? $_POST['content'] : '';
 
-                                                if($banner_id == 0)
+                                                if($subpage_id == 0)
                                                 {
-                                                    $uploaddir = ".././uploads/banners/";
+                                                    $uploaddir = ".././uploads/subpage_icon/";
                                                     $uploadfile = $uploaddir . basename($_FILES['image']['name']);
 
                                                     move_uploaded_file($_FILES['image']["tmp_name"], $uploadfile);
 
-                                                    $sql = "INSERT INTO banners (title,description,image)
-                                                                VALUES ('$title','$description','$uploadfile')";
+                                                    $sql = "INSERT INTO subpages (title,content,icon)
+                                                                VALUES ('$title','$content','$uploadfile')";
                                                     $query = $conn->prepare($sql);
                                                     $query->execute();
                                                 }
                                                 else{
-                                                    $sql = "UPDATE banners
-                                                        SET title = '$title', description = '$description', updated_at = now()
-                                                        WHERE banner_id = $banner_id ";
+                                                    $sql = "UPDATE subpages
+                                                        SET title = '$title', content = '$content', updated_at = now()
+                                                        WHERE subpage_id = $subpage_id ";
                                                     $query = $conn->prepare($sql);
                                                     $query->execute();
                                                 }
-                                                header("Location: ./admin.php?page=banner/banner");
+                                                header("Location: ./admin.php?page=subpages/subpage");
                                             }
                                             ?>
                                         </div>
@@ -145,26 +144,26 @@
         $(document).ready(function () {
             $(".modify-btn").click(function () {
                 var row = $(this).parent().parent();
-                var banner_id = row.find(".banner_id-form").text();
-                var img_src = row.find(".img-form").children().attr("src");
+                var banner_id = row.find(".subpage_id-form").text();
+                var img_src = row.find(".icon-form").children().attr("src");
                 var title = row.find(".title-form").text();
-                var description = row.find(".desc-form").text();
+                var content = row.find(".content-form").text();
 
-                $("#banner_id").attr("value", banner_id);
+                $("#subpage_id").attr("value", banner_id);
                 $("#modal-image").attr("src",img_src);
                 $("#modal-image").removeClass("hidden");
                 $("#form-modal-image").addClass("hidden");
                 $("#image").removeAttr("required");
                 $("#title").val(title);
-                $("#description").val(description);
+                $("#content").val(content);
             });
             $(".add-new-btn").click(function () {
-                $("#banner_id").attr("value", 0);
+                $("#subpage_id").attr("value", 0);
                 $("#modal-image").addClass("hidden");
                 $("#form-modal-image").removeClass("hidden");
                 $("#image").prop("required",true);
                 $("#title").val("");
-                $("#description").val("");
+                $("#content").val("");
             });
         });
     </script>

@@ -1,3 +1,10 @@
+<?php
+    ob_start();
+	session_start();
+	if(!isset($_SESSION["LOGIN_USER"])){
+        header('Location: login.php');
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,15 +31,23 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        td{
+            max-width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 </head>
 <!-- ADD THE CLASS layout-boxed TO GET A BOXED LAYOUT -->
-<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<body class="hold-transition skin-blue fixed sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="../views/admin.php" class="logo">
+        <a href="../index.php" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>STR</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -50,29 +65,23 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../AdminLTE-2.3.11/dist/img/user2-160x160.jpg" class="user-image"
+                            <img src="../image/av1_1.png" class="user-image"
                                  alt="User Image">
-                            <span class="hidden-xs">Nam Nguyễn Văn</span>
+                            <span class="hidden-xs"><?= $_SESSION['LOGIN_USER']['user_name'] ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="../AdminLTE-2.3.11/dist/img/user2-160x160.jpg" class="img-circle"
+                                <img src="../image/av1_1.png" class="img-circle"
                                      alt="User Image">
 
                                 <p>
-                                    Nam Nguyễn Văn
-                                    <small>Member since 2017</small>
+                                    <?= $_SESSION['LOGIN_USER']['user_name'] ?>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
+                            <li class="user-footer text-center">
+                                    <a href="./logout.php" class="btn btn-default btn-flat" style="width: 50%;margin-left: 25%">Sign out</a>
                             </li>
                         </ul>
                     </li>
@@ -94,10 +103,10 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../AdminLTE-2.3.11/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="../image/av1_1.png" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Nam Nguyễn Văn</p>
+                    <p><?= $_SESSION['LOGIN_USER']['user_name'] ?></p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -106,27 +115,58 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Banners</span>
+                        <i class="fa fa-picture-o"></i> <span>Banners</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./admin.php?page=banner/add"><i class="fa fa-circle-o"></i>Add Banner</a></li>
-                        <li><a href="./admin.php?page=banner/modify"><i class="fa fa-circle-o"></i>Modify Banner</a>
+                        <li><a href="./admin.php?page=banner/banner"><i class="fa fa-table"></i>Manager Banner</a>
                         </li>
                     </ul>
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>SubPage</span>
+                        <i class="fa fa-list"></i> <span>Show Case</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./admin.php?page=subpage/add"><i class="fa fa-circle-o"></i>Add Page</a></li>
-                        <li><a href="./admin.php?page=subpage/modify"><i class="fa fa-circle-o"></i>Modify P</a></li>
+                        <li><a href="./admin.php?page=showcase/showcase"><i class="fa fa-table"></i>Manager Showcase</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-comment"></i> <span>Contact Message</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="./admin.php?page=contact/contact"><i class="fa fa-table"></i>Manager Contact Message</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-link"></i> <span>Social Links</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="./admin.php?page=socials/social"><i class="fa fa-table"></i>Manager Social links</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file"></i> <span>Simple and pure design</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="./admin.php?page=subpages/subpage"><i class="fa fa-table"></i>Manager Subpages</a></li>
                     </ul>
                 </li>
             </ul>
@@ -138,6 +178,7 @@
 
     <!-- Content Wrapper. Contains page content -->
         <?php
+            include './PDO_Connection.php';
             if (isset($_GET['page']))
             {
                 $page = $_GET['page'];
@@ -162,7 +203,6 @@
 
                         </section>
                         <!-- /.content -->
-                        }
                     </div>
                     <!-- /.content-wrapper -->
                     <?php
@@ -171,10 +211,9 @@
 
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.8
+            <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-        reserved.
+        <strong>Copyright &copy; 2017 <a href="https://www.facebook.com/NamNguyenVank59">Nam Nguyễn Văn</a></strong>
     </footer>
 
     <!-- Control Sidebar -->
