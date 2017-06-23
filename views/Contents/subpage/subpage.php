@@ -44,6 +44,7 @@
                                 <th style="width: 25%">Image</th>
                                 <th>Title</th>
                                 <th>Content</th>
+                                <th>Is_Publish</th>
                                 <th>Created_at</th>
                                 <th>Updated_at</th>
                                 <th>Chọn sửa</th>
@@ -59,6 +60,17 @@
                                         <td class="icon-form"><img src="<?=$value->icon?>" alt="img"></td>
                                         <td class="title-form"><?=$value->title?></td>
                                         <td class="content-form"><?=$value->content?></td>
+                                        <td class="is_publish-form">
+                                            <?php
+                                                if($value->is_publish == 0)
+                                                {
+                                                    echo "No";
+                                                }
+                                                else{
+                                                    echo "Yes";
+                                                }
+                                            ?>
+                                            </td>
                                         <td><?= $value->created_at?></td>
                                         <td><?= $value->updated_at?></td>
                                         <td><button class="btn btn-primary btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Modify</button></td>
@@ -103,6 +115,13 @@
                                                 <label for="content">Content</label>
                                                 <textarea col="30" row="10" class="form-control" id="content" name="content" required></textarea>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="publish">Publish: </label>
+                                                <select name="publish" id="publish">
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+                                                </select>
+                                            </div>
                                             <div class="form-group" id="form-modal-image">
                                                 <label for="image">Image</label>
                                                 <input type="file" id="image" name="image" accept=".jpg,.png" required>
@@ -113,6 +132,7 @@
                                                 $subpage_id = isset($_POST['subpage_id']) ? $_POST['subpage_id'] : 0;
                                                 $title = isset($_POST['title']) ? $_POST['title'] : '';
                                                 $content = isset($_POST['content']) ? $_POST['content'] : '';
+                                                $is_publish = isset($_POST['publish']) ? $_POST['publish'] : 1;
 
                                                 if($subpage_id == 0)
                                                 {
@@ -121,14 +141,14 @@
 
                                                     move_uploaded_file($_FILES['image']["tmp_name"], $uploadfile);
 
-                                                    $sql = "INSERT INTO subpage (title,content,icon)
-                                                                VALUES ('$title','$content','$uploadfile')";
+                                                    $sql = "INSERT INTO subpages (title,content,is_publish,icon)
+                                                                VALUES ('$title','$content',$is_publish,'$uploadfile')";
                                                     $query = $conn->prepare($sql);
                                                     $query->execute();
                                                 }
                                                 else{
-                                                    $sql = "UPDATE subpage
-                                                        SET title = '$title', content = '$content', updated_at = now()
+                                                    $sql = "UPDATE subpages
+                                                        SET title = '$title', content = '$content', is_publish = $is_publish ,updated_at = now()
                                                         WHERE subpage_id = $subpage_id ";
                                                     $query = $conn->prepare($sql);
                                                     $query->execute();
@@ -162,7 +182,15 @@
                 var img_src = row.find(".icon-form").children().attr("src");
                 var title = row.find(".title-form").text();
                 var content = row.find(".content-form").text();
+                var is_publish = row.find(".is_publish-form").text().trim();
 
+                if(is_publish == "No")
+                {
+                    is_publish = 0;
+                }
+                else{
+                    is_publish = 1;
+                }
                 $("#subpage_id").attr("value", banner_id);
                 $("#modal-image").attr("src",img_src);
                 $("#modal-image").removeClass("hidden");
@@ -170,6 +198,7 @@
                 $("#image").removeAttr("required");
                 $("#title").val(title);
                 $("#content").val(content);
+                $("#publish option[value=" + is_publish + "]").prop('selected', true);
             });
             $(".add-new-btn").click(function () {
                 $("#subpage_id").attr("value", 0);
@@ -178,6 +207,7 @@
                 $("#image").prop("required",true);
                 $("#title").val("");
                 $("#content").val("");
+                $("#publish option[value=1]").prop('selected',true);
             });
         });
     </script>

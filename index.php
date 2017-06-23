@@ -114,11 +114,11 @@
         <div class="container">
             <div class="row">
                 <?php
-                    $queryData = $conn->prepare("SELECT title,icon,content FROM subpages LIMIT 3");
+                    $queryData = $conn->prepare("SELECT * FROM subpages where is_publish = 1 LIMIT 3");
                     $queryData->execute();
-                    $result = $queryData->fetchAll();
+                    $result = $queryData->fetchALL();
                     foreach ($result as $value) {
-                        $src = substr($value["icon"], 3);
+                        $src = substr($value['icon'], 3);
                         ?>
                             <div class="col-sm-4">
                                 <img src="<?= $src ?>" alt="icon image">
@@ -141,7 +141,7 @@
         <div class="portfolio--main">
             <div class="row list-image">
                 <?php
-                    $queryData = $conn->prepare("SELECT * FROM showcases LIMIT 10");
+                    $queryData = $conn->prepare("SELECT * FROM showcases LIMIT 6");
                     $queryData->execute();
                     $result = $queryData->fetchALL();
                     foreach ($result as $value) {
