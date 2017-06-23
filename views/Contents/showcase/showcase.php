@@ -1,4 +1,21 @@
 <?php
+//    include_once "../pagination/pagination.php";
+//    include_once "../pagination/db.php";
+//
+//    $array = array(
+//        'current_page' => isset($_GET['page']) ? $_GET['page'] : '1',
+//        'total_record' => get_total_number($conn, 'showcase_id', 'showcases'),
+//        'limit' => 2,
+//        'range' => 5,
+//        'link_full' => "./admin.php?feature=showcase&page={page}",
+//        'link_first' => "index.php",
+//    );
+//    $paging = new Pagination();
+//    $paging->init($array);
+//    //    var_dump($paging->get_config());
+//    $limit = $paging->get_config('limit');
+//    $start = $paging->get_config('start');
+//    $member = json_decode(get_all_record($conn,$limit,$start));
 ?>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -127,7 +144,7 @@
                                                         $query = $conn->prepare($sql);
                                                         $query->execute();
                                                     }
-                                                    header("Location: ./admin.php?page=showcase/showcase");
+                                                    header("Location: ./admin.php?feature=showcase");
                                                 }
                                             ?>
                                         </div>

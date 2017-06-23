@@ -5,6 +5,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     $sql = "DELETE FROM showcases where showcase_id = $showcase_id";
     $queryData = $conn->prepare($sql);
     $queryData->execute();
-    header('Location: ../../admin.php?page=showcase/showcase');
+    header('Location: ../../admin.php?feature=showcase');
 }
 ?>

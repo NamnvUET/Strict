@@ -5,6 +5,6 @@
         $sql = "DELETE FROM banners where banner_id = $banner_id";
         $queryData = $conn->prepare($sql);
         $queryData->execute();
-        header('Location: ../../admin.php?page=banner/banner');
+        header('Location: ../../admin.php?feature=banner');
     }
 ?>

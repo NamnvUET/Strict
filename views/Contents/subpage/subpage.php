@@ -107,19 +107,19 @@
 
                                                     move_uploaded_file($_FILES['image']["tmp_name"], $uploadfile);
 
-                                                    $sql = "INSERT INTO subpages (title,content,icon)
+                                                    $sql = "INSERT INTO subpage (title,content,icon)
                                                                 VALUES ('$title','$content','$uploadfile')";
                                                     $query = $conn->prepare($sql);
                                                     $query->execute();
                                                 }
                                                 else{
-                                                    $sql = "UPDATE subpages
+                                                    $sql = "UPDATE subpage
                                                         SET title = '$title', content = '$content', updated_at = now()
                                                         WHERE subpage_id = $subpage_id ";
                                                     $query = $conn->prepare($sql);
                                                     $query->execute();
                                                 }
-                                                header("Location: ./admin.php?page=subpages/subpage");
+                                                header("Location: ./admin.php?feature=subpage");
                                             }
                                             ?>
                                         </div>

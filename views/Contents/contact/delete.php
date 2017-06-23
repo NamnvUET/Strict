@@ -5,6 +5,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     $sql = "DELETE FROM contact_message where message_id = $message_id";
     $queryData = $conn->prepare($sql);
     $queryData->execute();
-    header('Location: ../../admin.php?page=contact/contact');
+    header('Location: ../../admin.php?feature=contact');
 }
 ?>

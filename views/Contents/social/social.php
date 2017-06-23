@@ -105,7 +105,7 @@
                                                 $query = $conn->prepare($sql);
                                                 $query->execute();
                                             }
-                                            header("Location: ./admin.php?page=socials/social");
+                                            header("Location: ./admin.php?feature=social");
                                         }
                                         ?>
                                         <!-- /.box-body -->

@@ -5,6 +5,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
     $sql = "DELETE FROM social_links where social_network = '$social_network' ";
     $queryData = $conn->prepare($sql);
     $queryData->execute();
-    header('Location: ../../admin.php?page=socials/social');
+    header('Location: ../../admin.php?feature=social');
 }
 ?>

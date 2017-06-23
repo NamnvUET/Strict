@@ -99,7 +99,7 @@ $(document).ready(function () {
     //Display Detail with XMLHttp AJAX
     function showDetail(showcase_id) {
         $.ajax({
-           url: "./views/Contents/showcase/getInfo.php",
+            url: "./views/Contents/showcase/getInfo.php",
             type: "get",
             dataType: "json",
             data: {

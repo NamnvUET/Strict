@@ -120,7 +120,7 @@
                                                     $query = $conn->prepare($sql);
                                                     $query->execute();
                                                 }
-                                                header("Location: ./admin.php?page=banner/banner");
+                                                header("Location: ./admin.php?feature=banner");
                                             }
                                             ?>
                                         </div>

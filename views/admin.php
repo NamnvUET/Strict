@@ -121,7 +121,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./admin.php?page=banner/banner"><i class="fa fa-table"></i>Manager Banner</a>
+                        <li><a href="./admin.php?feature=banner"><i class="fa fa-table"></i>Manager Banner</a>
                         </li>
                     </ul>
                 </li>
@@ -133,7 +133,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./admin.php?page=showcase/showcase"><i class="fa fa-table"></i>Manager Showcase</a></li>
+                        <li><a href="./admin.php?feature=showcase"><i class="fa fa-table"></i>Manager Showcase</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -144,7 +144,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./admin.php?page=contact/contact"><i class="fa fa-table"></i>Manager Contact Message</a></li>
+                        <li><a href="./admin.php?feature=contact"><i class="fa fa-table"></i>Manager Contact Message</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -155,7 +155,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./admin.php?page=socials/social"><i class="fa fa-table"></i>Manager Social links</a></li>
+                        <li><a href="./admin.php?feature=social"><i class="fa fa-table"></i>Manager Social links</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -166,7 +166,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="./admin.php?page=subpages/subpage"><i class="fa fa-table"></i>Manager Subpages</a></li>
+                        <li><a href="./admin.php?feature=subpage"><i class="fa fa-table"></i>Manager Subpages</a></li>
                     </ul>
                 </li>
             </ul>
@@ -179,10 +179,10 @@
     <!-- Content Wrapper. Contains page content -->
         <?php
             include './PDO_Connection.php';
-            if (isset($_GET['page']))
+            if (isset($_GET['feature']))
             {
-                $page = $_GET['page'];
-                include_once "./Contents/" . $page . '.php';
+                $feature = $_GET['feature'];
+                include_once "./Contents/" . $feature . "/" . $feature . ".php";
             }
             else{
                 ?>
