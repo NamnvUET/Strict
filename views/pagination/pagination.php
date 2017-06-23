@@ -4,7 +4,7 @@
             'current_page' => 1,
             'total_record' => 1,
             'total_page' => 1,
-            'limit' => 1,
+            'limit' => 0,
             'range' => 1,
             'min' => 0,
             'max' => 1,

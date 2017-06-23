@@ -1,4 +1,19 @@
 <?php
+include_once "./pagination/pagination.php";
+include_once "./pagination/db_function.php";
+$array = array(
+    'current_page' => isset($_GET['page']) ? $_GET['page'] : '1',
+    'total_record' => get_total_number($conn,'banner_id','banners'),
+    'limit' => 5,
+    'range' => 10,
+    'link_full' => "./admin.php?feature=banner&page={page}",
+    'link_first' => "./admin.php?feature=banner",
+);
+$paging = new Pagination();
+$paging->init($array);
+$limit = $paging->get_config('limit');
+$start = $paging->get_config('start');
+$member = json_decode(get_all_record($conn,'banners',$limit,$start));
 ?>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -37,28 +52,27 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $queryData = $conn->prepare("SELECT * FROM banners");
-                                $queryData->execute();
-                                $result = $queryData->fetchALL();
-                                //var_dump($result);
-                                foreach ($result as $value) {
+                                foreach ($member as $value) {
                                     # code...
                                     ?>
                                     <tr>
-                                        <td class="banner_id-form"><?=$value['banner_id']?></td>
-                                        <td class="img-form"><img src="<?=$value['image']?>" alt="img" width="100%"></td>
-                                        <td class="title-form"><?=$value['title']?></td>
-                                        <td class="desc-form"><?=$value['description']?></td>
-                                        <td><?= $value['created_at']?></td>
-                                        <td><?= $value['updated_at']?></td>
+                                        <td class="banner_id-form"><?=$value->banner_id?></td>
+                                        <td class="img-form"><img src="<?=$value->image?>" alt="img" width="100%"></td>
+                                        <td class="title-form"><?=$value->title?></td>
+                                        <td class="desc-form"><?=$value->description?></td>
+                                        <td><?= $value->created_at?></td>
+                                        <td><?= $value->updated_at?></td>
                                         <td><button class="btn btn-primary btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Modify</button></td>
-                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/banner/delete.php?banner_id=<?=$value['banner_id']?>">Delete</a></td>
+                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/banner/delete.php?banner_id=<?=$value->banner_id?>">Delete</a></td>
                                     </tr>
                                     <?php
                                 }
                                 ?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="paging text-center">
+                            <?php echo $paging->html()?>
                         </div>
                         <!-- /.box-body -->
                     </div>

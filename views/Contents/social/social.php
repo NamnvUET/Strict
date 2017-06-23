@@ -1,4 +1,19 @@
 <?php
+    include_once "./pagination/pagination.php";
+    include_once "./pagination/db_function.php";
+    $array = array(
+        'current_page' => isset($_GET['page']) ? $_GET['page'] : '1',
+        'total_record' => get_total_number($conn,'social_network','social_links'),
+        'limit' => 5,
+        'range' => 10,
+        'link_full' => "./admin.php?feature=social&page={page}",
+        'link_first' => "./admin.php?feature=social",
+    );
+    $paging = new Pagination();
+    $paging->init($array);
+    $limit = $paging->get_config('limit');
+    $start = $paging->get_config('start');
+    $member = json_decode(get_all_record($conn,'social_links',$limit,$start));
 ?>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -34,20 +49,16 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $queryData = $conn->prepare("SELECT * FROM social_links");
-                                $queryData->execute();
-                                $result = $queryData->fetchALL();
-                                //var_dump($result);
-                                foreach ($result as $value) {
+                                foreach ($member as $value) {
                                     # code...
                                     ?>
                                     <tr style="">
-                                        <td class="social_network-form"><strong><?=$value['social_network']?></strong></td>
-                                        <td class="links-form"><a href="<?=$value['link']?>"><?=$value['link']?></a></td>
-                                        <td class="created_at-form"><?=$value['created_at']?></td>
-                                        <td class="updated_at-form"><?=$value['updated_at']?></td>
+                                        <td class="social_network-form"><strong><?=$value->social_network?></strong></td>
+                                        <td class="links-form"><a href="<?=$value->link?>"><?=$value->link?></a></td>
+                                        <td class="created_at-form"><?=$value->created_at?></td>
+                                        <td class="updated_at-form"><?=$value->updated_at?></td>
                                         <td><button class="btn btn-success btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Modify link</button></td>
-                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/socials/delete.php?social_network=<?=$value['social_network']?>">Delete</a></td>
+                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/socials/delete.php?social_network=<?=$value->social_network?>">Delete</a></td>
 
                                     </tr>
                                     <?php
@@ -55,6 +66,9 @@
                                 ?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="paging text-center">
+                            <?php echo $paging->html()?>
                         </div>
                         <!-- /.box-body -->
                     </div>

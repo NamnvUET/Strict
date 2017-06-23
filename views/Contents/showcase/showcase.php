@@ -1,21 +1,19 @@
 <?php
-//    include_once "../pagination/pagination.php";
-//    include_once "../pagination/db.php";
-//
-//    $array = array(
-//        'current_page' => isset($_GET['page']) ? $_GET['page'] : '1',
-//        'total_record' => get_total_number($conn, 'showcase_id', 'showcases'),
-//        'limit' => 2,
-//        'range' => 5,
-//        'link_full' => "./admin.php?feature=showcase&page={page}",
-//        'link_first' => "index.php",
-//    );
-//    $paging = new Pagination();
-//    $paging->init($array);
-//    //    var_dump($paging->get_config());
-//    $limit = $paging->get_config('limit');
-//    $start = $paging->get_config('start');
-//    $member = json_decode(get_all_record($conn,$limit,$start));
+    include_once "./pagination/pagination.php";
+    include_once "./pagination/db_function.php";
+    $array = array(
+        'current_page' => isset($_GET['page']) ? $_GET['page'] : '1',
+        'total_record' => get_total_number($conn,'showcase_id','showcases'),
+        'limit' => 5,
+        'range' => 10,
+        'link_full' => "./admin.php?feature=showcase&page={page}",
+        'link_first' => "./admin.php?feature=showcase",
+    );
+    $paging = new Pagination();
+    $paging->init($array);
+    $limit = $paging->get_config('limit');
+    $start = $paging->get_config('start');
+    $member = json_decode(get_all_record($conn,'showcases',$limit,$start));
 ?>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -29,7 +27,6 @@
                 <li class="active">Manager Banner</li>
             </ol>
         </section>
-
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -55,29 +52,28 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $queryData = $conn->prepare("SELECT * FROM showcases");
-                                $queryData->execute();
-                                $result = $queryData->fetchALL();
-                                //var_dump($result);
-                                foreach ($result as $value) {
-                                    # code...
+                                    foreach ($member as $value) {
+                                        # code...
+                                        ?>
+                                        <tr>
+                                            <td class="showcase_id-form"><?=$value->showcase_id?></td>
+                                            <td class="img-form"><img src="<?=$value->showcase_image?>" alt="img" width="100%"></td>
+                                            <td class="name-form"><?=$value->showcase_name?></td>
+                                            <td class="desc-form"><?=$value->showcase_description?></td>
+                                            <td class="homepage-form"><?=$value->showcase_home?></td>
+                                            <td><?= $value->created_at?></td>
+                                            <td><?= $value->updated_at?></td>
+                                            <td><button class="btn btn-primary btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Modify</button></td>
+                                            <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/showcase/delete.php?showcase_id=<?=$value->showcase_id?>">Delete</a></td>
+                                        </tr>
+                                        <?php
+                                    }
                                     ?>
-                                    <tr>
-                                        <td class="showcase_id-form"><?=$value['showcase_id']?></td>
-                                        <td class="img-form"><img src="<?=$value['showcase_image']?>" alt="img" width="100%"></td>
-                                        <td class="name-form"><?=$value['showcase_name']?></td>
-                                        <td class="desc-form"><?=$value['showcase_description']?></td>
-                                        <td class="homepage-form"><?=$value['showcase_home']?></td>
-                                        <td><?= $value['created_at']?></td>
-                                        <td><?= $value['updated_at']?></td>
-                                        <td><button class="btn btn-primary btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Modify</button></td>
-                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/showcase/delete.php?showcase_id=<?=$value['showcase_id']?>">Delete</a></td>
-                                    </tr>
-                                    <?php
-                                }
-                                ?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div id="paging" class="text-center">
+                            <?php echo $paging->html(); ?>
                         </div>
                         <!-- /.box-body -->
                     </div>

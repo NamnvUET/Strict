@@ -1,4 +1,19 @@
 <?php
+    include_once "./pagination/pagination.php";
+    include_once "./pagination/db_function.php";
+    $array = array(
+        'current_page' => isset($_GET['page']) ? $_GET['page'] : '1',
+        'total_record' => get_total_number($conn,'message_id','contact_message'),
+        'limit' => 5,
+        'range' => 10,
+        'link_full' => "./admin.php?feature=contact&page={page}",
+        'link_first' => "./admin.php?feature=contact",
+    );
+    $paging = new Pagination();
+    $paging->init($array);
+    $limit = $paging->get_config('limit');
+    $start = $paging->get_config('start');
+    $member = json_decode(get_all_record($conn,'contact_message',$limit,$start));
 ?>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -37,21 +52,18 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $queryData = $conn->prepare("SELECT * FROM contact_message");
-                                $queryData->execute();
-                                $result = $queryData->fetchALL();
-                                //var_dump($result);
-                                foreach ($result as $value) {
+
+                                foreach ($member as $value) {
                                     # code...
                                     ?>
                                     <tr style="">
-                                        <td class="message_id-form"><?=$value['message_id']?></td>
-                                        <td class="fullname-form"><?=$value['fullname']?></td>
-                                        <td class="email-form" style="word-break: break-all"><?=$value['email']?></td>
-                                        <td class="message-form" style="text-overflow: ellipsis; overflow: hidden"><?=$value['message']?></td>
+                                        <td class="message_id-form"><?=$value->message_id?></td>
+                                        <td class="fullname-form"><?=$value->fullname?></td>
+                                        <td class="email-form" style="word-break: break-all"><?=$value->email?></td>
+                                        <td class="message-form" style="text-overflow: ellipsis; overflow: hidden"><?=$value->message?></td>
                                         <td class="is_subcribe-form">
                                             <?php
-                                                if($value['is_subcribe'] == 0)
+                                                if($value->is_subcribe == 0)
                                                 {
                                                     echo "No";
                                                 }
@@ -60,16 +72,19 @@
                                                 }
                                             ?>
                                         </td>
-                                        <td><?= $value['created_at']?></td>
-                                        <td><?= $value['updated_at']?></td>
+                                        <td><?= $value->created_at?></td>
+                                        <td><?= $value->updated_at?></td>
                                         <td><button class="btn btn-primary btn-md modify-btn" data-toggle="modal" data-target="#myModal" aria-hidden="true">Detail</button></td>
-                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/contact/delete.php?message_id=<?=$value['message_id']?>">Delete</a></td>
+                                        <td><a onclick=" return confirm('Are you sure ?')" class="btn btn-danger btn-md" href="./Contents/contact/delete.php?message_id=<?=$value->message_id?>">Delete</a></td>
                                     </tr>
                                     <?php
                                 }
                                 ?>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="paging text-center">
+                            <?php echo $paging->html()?>
                         </div>
                         <!-- /.box-body -->
                     </div>
